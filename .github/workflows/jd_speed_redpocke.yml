@@ -1,16 +1,16 @@
 # This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
 
-name: 京东小魔方
+name: 京东极速版红包
 
 on:
   workflow_dispatch:
   schedule:
-    - cron: '10 16 * * *'
+    - cron: '0 16 * * *'
   watch:
     types: started
   repository_dispatch:
-    types: xmf
+    types: speed_redpocke
 jobs:
   build:
 
@@ -27,13 +27,12 @@ jobs:
       - name: npm install
         run: |
           cd ~/scripts
-          npm install京东小魔方】'
+          npm install
+      - name: '运行 【京东极速版红包】'
         run: |
           cd ~/scripts
-          node jd_xmf.js
+          node jd_speed_redpocke.js
         env:
-          FRUIT_NOTIFY_CONTROL: ${{ secrets.FRUIT_NOTIFY_CONTROL }}
-          FRUITSHARECODES: ${{ secrets.FRUITSHARECODES }}
           JD_COOKIE: ${{ secrets.JD_COOKIE }}
           JD_DEBUG: ${{ secrets.JD_DEBUG }}
           JD_USER_AGENT: ${{ secrets.JD_USER_AGENT }}
