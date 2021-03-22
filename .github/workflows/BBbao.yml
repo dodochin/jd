@@ -12,19 +12,19 @@ jobs:
     steps:
       - name: Checkout
         run: |
-          git clone https://github.com/a1564471347/Scripts.git ~/Scripts
+          git clone https://github.com/wishcaiji/JD-scripts.git ~/JD-scripts
       - name: Use Node.js 14.x
         uses: actions/setup-node@v1
         with:
           node-version: 14.x
       - name: npm install
         run: |
-          cd ~/Scripts
+          cd ~/JD-scripts
           npm install
           npm install cron
           npm install request
       - name: '运行 【步步宝】'
         run: |
           cd ~/Scripts
-          node Task/BBB.js
+          node Task/bububao.js
         
